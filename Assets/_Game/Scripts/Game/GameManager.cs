@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -71,10 +72,10 @@ public class GameManager : MonoBehaviour
     {
         if (!playable) return;
 
-        if (Input.GetKeyDown(KeyCode.W)) player.MoveUp();
-        else if (Input.GetKeyDown(KeyCode.S)) player.MoveDown();
-        else if (Input.GetKeyDown(KeyCode.D)) player.MoveRight();
-        else if (Input.GetKeyDown(KeyCode.A)) player.MoveLeft();
+        if (Keyboard.current.wKey.wasPressedThisFrame) player.MoveUp();
+        else if (Keyboard.current.sKey.wasPressedThisFrame) player.MoveDown();
+        else if (Keyboard.current.dKey.wasPressedThisFrame) player.MoveRight();
+        else if (Keyboard.current.aKey.wasPressedThisFrame) player.MoveLeft();
     }
 
     public void ManualPlayerInput(MoveDirection moveDirection)
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckWinGame()
     {
-        if (mapGenerator.CheckWin())
+        if (mapGenerator.CheckWin() && !isCreating)
         {
             soundService.PlaySoundEffect(EFFECT_SOUND.WIN_GAME);
             player.Win();
