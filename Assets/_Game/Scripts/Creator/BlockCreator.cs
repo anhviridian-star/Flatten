@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -77,3 +78,4 @@ public class BlockCreator : MonoBehaviour, IPointerDownHandler
         layerText.text = newLayer.ToString();
     }
 }
+#endif

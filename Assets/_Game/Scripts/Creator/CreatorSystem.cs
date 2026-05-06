@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,3 +64,4 @@ public class CreatorSystem : MonoBehaviour
         levelSaveService.CreateNewLevelData(currentLevelData);
     }
 }
+#endif
