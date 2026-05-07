@@ -15,6 +15,8 @@ public class BlockCreator : MonoBehaviour, IPointerDownHandler
     {
         levelCreator = newLevelCreator;
         mapPos = newMapPos;
+
+        SetLayerText(layer);
     }
 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
@@ -75,7 +77,8 @@ public class BlockCreator : MonoBehaviour, IPointerDownHandler
 
     public void SetLayerText(int newLayer)
     {
-        layerText.text = newLayer.ToString();
+        if (newLayer == 0) layerText.text = "";
+        else layerText.text = newLayer.ToString();
     }
 }
 #endif
