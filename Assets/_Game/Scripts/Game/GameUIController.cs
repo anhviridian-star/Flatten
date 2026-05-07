@@ -71,13 +71,6 @@ public class GameUIController : MonoBehaviour
         await moveTween.AsyncWaitForCompletion();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Win();
-        }
-    }
     public void Win()
     {
         homeBtn.enabled = false;
